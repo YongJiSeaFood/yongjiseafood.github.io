@@ -12,6 +12,12 @@ const translations = {
     },
     section2: {
       title: "熱銷商品",
+      productATitle: "商品 A",
+      productADescription: "商品 A 選項",
+      productBTitle: "商品 B",
+      productBDescription: "商品 B 選項",
+      productCTitle: "商品 C",
+      productCDescription: "商品 C 選項",
       // item 1
       item1Title: "虱目魚肚規格 / 💰價目表",
       item1S: "170-190g / $120",
@@ -50,6 +56,20 @@ const translations = {
     footer: {
       text: "© 2025 永吉水產。版權所有。",
     },
+    cart: {
+      button: "購物車",
+      addToCart: "加入購物車",
+      eyebrow: "Yong Ji Seafood",
+      title: "購物車",
+      emptyTitle: "購物車還是空的",
+      emptyText: "先選一個商品加入購物車。",
+      subtotal: "小計",
+      checkoutHint: "付款串接完成後，這裡會送出訂單並前往綠界付款。",
+      checkout: "前往結帳",
+      quantity: "數量",
+      remove: "移除",
+      checkoutPending: "結帳功能準備中",
+    },
     floatingBtn: {
       lineLink: "立即訂購",
     },
@@ -67,6 +87,12 @@ const translations = {
     },
     section2: {
       title: "Best-selling Products",
+      productATitle: "Product A",
+      productADescription: "Product A option",
+      productBTitle: "Product B",
+      productBDescription: "Product B option",
+      productCTitle: "Product C",
+      productCDescription: "Product C option",
       // item 1
       item1Title: "Milkfish Belly Specifications / 💰 Price List",
       item1S: "170-190g / $120",
@@ -106,17 +132,35 @@ const translations = {
     footer: {
       text: "© 2025 Yong Ji Seafood. All rights reserved.",
     },
+    cart: {
+      button: "Cart",
+      addToCart: "Add to Cart",
+      eyebrow: "Yong Ji Seafood",
+      title: "Cart",
+      emptyTitle: "Your cart is empty",
+      emptyText: "Add a product to get started.",
+      subtotal: "Subtotal",
+      checkoutHint:
+        "After payment integration, this will create an order and continue to ECPay.",
+      checkout: "Checkout",
+      quantity: "Quantity",
+      remove: "Remove",
+      checkoutPending: "Checkout is not connected yet",
+    },
     floatingBtn: {
       lineLink: "Order Now",
     },
   },
 };
 
+window.translations = translations;
+
 function getNestedValue(obj, keyPath) {
   return keyPath.split(".").reduce((acc, key) => acc && acc[key], obj);
 }
 
 function setLanguage(lang) {
+  document.documentElement.dataset.lang = lang;
   const currentTranslations = translations[lang];
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const keyPath = element.getAttribute("data-i18n");
@@ -134,6 +178,8 @@ function setLanguage(lang) {
   document.querySelectorAll("select[onchange]").forEach((select) => {
     select.value = lang;
   });
+
+  window.dispatchEvent(new CustomEvent("languagechange", { detail: { lang } }));
 }
 
 // 預設語系

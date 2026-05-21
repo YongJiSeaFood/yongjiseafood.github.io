@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="./css/index.css" />
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- AOS CSS CDN -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <!-- PWA -->
+        <!-- PWA -->
     <link rel="manifest" href="./manifest.json" />
   </head>
   <body class="bg-gray-100">
@@ -54,7 +52,17 @@
             </nav>
           </div>
           <!-- Right: Language Dropdown & Mobile Menu Button -->
-          <div class="flex items-center">
+          <div class="flex items-center gap-3">
+            <button
+              type="button"
+              class="js-cart-open cart-open-button relative inline-flex items-center rounded-md border border-[#06205a] px-3 py-2 text-sm font-semibold text-[#06205a] transition-colors hover:bg-[#06205a] hover:text-white"
+              aria-label="Open shopping cart"
+            >
+              <span data-i18n="cart.button">購物車</span>
+              <span
+                class="js-cart-count ml-2 min-w-5 rounded-full bg-[#06205a] px-1.5 text-center text-xs text-white"
+              >0</span>
+            </button>
             <!-- Desktop Language Dropdown -->
             <div class="hidden sm:block">
               <select
@@ -235,7 +243,7 @@
       <!-- Section 1 -->
       <section
         id="section1"
-        data-aos="fade-up"
+        data-gsap="fade-up"
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 shadow mb-8"
       >
         <h2 data-i18n="section1.title" class="text-2xl font-bold mb-4">
@@ -246,16 +254,182 @@
       <!-- Section 2 -->
       <section
         id="section2"
-        data-aos="fade-up"
+        data-gsap="fade-up"
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 shadow mb-8"
       >
         <h2 data-i18n="section2.title" class="text-2xl font-bold mb-4">
           Section 2
         </h2>
+        <div
+          id="product-carousel"
+          class="product-carousel mb-10"
+        >
+          <div
+            class="product-carousel__viewport"
+            aria-live="polite"
+            aria-roledescription="carousel"
+          >
+            <div class="product-carousel__track">
+              <article
+                class="product-carousel__slide"
+                aria-roledescription="slide"
+                aria-label="1 / 3"
+              >
+                <div class="product-carousel__card">
+                  <div class="product-carousel__image">
+                    <img src="./assets/products/MilkfishBelly.webp" alt="商品 A" />
+                  </div>
+                  <div class="product-carousel__badge">A</div>
+                  <h3
+                    data-i18n="section2.productATitle"
+                    class="mb-2 text-xl font-bold text-[#06205a]"
+                  >
+                    商品 A
+                  </h3>
+                  <p
+                    data-i18n="section2.productADescription"
+                    class="mb-4 text-sm text-gray-700"
+                  >
+                    商品 A 選項
+                  </p>
+                  <div class="mb-4 text-lg font-semibold">$120</div>
+                  <button
+                    type="button"
+                    class="js-cart-add w-full rounded-md bg-[#06205a] px-4 py-2 font-semibold text-white transition-colors hover:bg-[#0b337f]"
+                    data-item-id="product-a"
+                    data-item-price="120"
+                    data-item-name="商品 A"
+                    data-item-name-en="Product A"
+                    data-item-description="商品 A 選項"
+                    data-item-image="/assets/logo.webp"
+                  >
+                    <span data-i18n="cart.addToCart">加入購物車</span>
+                  </button>
+                </div>
+              </article>
+
+              <article
+                class="product-carousel__slide"
+                aria-roledescription="slide"
+                aria-label="2 / 3"
+              >
+                <div class="product-carousel__card">
+                  <div class="product-carousel__image">
+                    <img src="./assets/products/FishSkin.webp" alt="商品 B" />
+                  </div>
+                  <div class="product-carousel__badge">B</div>
+                  <h3
+                    data-i18n="section2.productBTitle"
+                    class="mb-2 text-xl font-bold text-[#06205a]"
+                  >
+                    商品 B
+                  </h3>
+                  <p
+                    data-i18n="section2.productBDescription"
+                    class="mb-4 text-sm text-gray-700"
+                  >
+                    商品 B 選項
+                  </p>
+                  <div class="mb-4 text-lg font-semibold">$180</div>
+                  <button
+                    type="button"
+                    class="js-cart-add w-full rounded-md bg-[#06205a] px-4 py-2 font-semibold text-white transition-colors hover:bg-[#0b337f]"
+                    data-item-id="product-b"
+                    data-item-price="180"
+                    data-item-name="商品 B"
+                    data-item-name-en="Product B"
+                    data-item-description="商品 B 選項"
+                    data-item-image="/assets/logo.webp"
+                  >
+                    <span data-i18n="cart.addToCart">加入購物車</span>
+                  </button>
+                </div>
+              </article>
+
+              <article
+                class="product-carousel__slide"
+                aria-roledescription="slide"
+                aria-label="3 / 3"
+              >
+                <div class="product-carousel__card">
+                  <div class="product-carousel__image">
+                    <img src="./assets/logo.webp" alt="商品 C" />
+                  </div>
+                  <div class="product-carousel__badge">C</div>
+                  <h3
+                    data-i18n="section2.productCTitle"
+                    class="mb-2 text-xl font-bold text-[#06205a]"
+                  >
+                    商品 C
+                  </h3>
+                  <p
+                    data-i18n="section2.productCDescription"
+                    class="mb-4 text-sm text-gray-700"
+                  >
+                    商品 C 選項
+                  </p>
+                  <div class="mb-4 text-lg font-semibold">$250</div>
+                  <button
+                    type="button"
+                    class="js-cart-add w-full rounded-md bg-[#06205a] px-4 py-2 font-semibold text-white transition-colors hover:bg-[#0b337f]"
+                    data-item-id="product-c"
+                    data-item-price="250"
+                    data-item-name="商品 C"
+                    data-item-name-en="Product C"
+                    data-item-description="商品 C 選項"
+                    data-item-image="/assets/logo.webp"
+                  >
+                    <span data-i18n="cart.addToCart">加入購物車</span>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="product-carousel__controls">
+            <button
+              type="button"
+              class="product-carousel__arrow"
+              data-product-carousel-prev
+              aria-label="Previous product"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="product-carousel__arrow"
+              data-product-carousel-next
+              aria-label="Next product"
+            >
+              ›
+            </button>
+          </div>
+
+          <div class="product-carousel__dots" aria-label="Product carousel">
+            <button
+              type="button"
+              class="product-carousel__dot"
+              data-product-carousel-dot="0"
+              aria-label="Show product A"
+            ></button>
+            <button
+              type="button"
+              class="product-carousel__dot"
+              data-product-carousel-dot="1"
+              aria-label="Show product B"
+            ></button>
+            <button
+              type="button"
+              class="product-carousel__dot"
+              data-product-carousel-dot="2"
+              aria-label="Show product C"
+            ></button>
+          </div>
+        </div>
         <!-- item 1 -->
         <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
+          data-gsap="fade-up"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div class="w-full md:w-1/2 mb-4 md:mb-0">
@@ -305,8 +479,8 @@
 
         <!-- item 2 -->
         <div
-          data-aos="fade-down"
-          data-aos-duration="1000"
+          data-gsap="fade-down"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div
@@ -328,8 +502,8 @@
 
         <!-- item 3 -->
         <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
+          data-gsap="fade-up"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div class="w-full md:w-1/2 mb-4 md:mb-0">
@@ -349,8 +523,8 @@
 
         <!-- item 4 -->
         <div
-          data-aos="fade-down"
-          data-aos-duration="1000"
+          data-gsap="fade-down"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div
@@ -372,8 +546,8 @@
 
         <!-- item 5 -->
         <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
+          data-gsap="fade-up"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div class="w-full md:w-1/2 mb-4 md:mb-0">
@@ -393,8 +567,8 @@
 
         <!-- item 6 -->
         <div
-          data-aos="fade-down"
-          data-aos-duration="1000"
+          data-gsap="fade-down"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div
@@ -416,8 +590,8 @@
 
         <!-- item 7 -->
         <div
-          data-aos="fade-up"
-          data-aos-duration="1000"
+          data-gsap="fade-up"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div class="w-full md:w-1/2 mb-4 md:mb-0">
@@ -437,8 +611,8 @@
 
         <!-- item 8 -->
         <div
-          data-aos="fade-down"
-          data-aos-duration="1000"
+          data-gsap="fade-down"
+          data-gsap-duration="1000"
           class="flex flex-col md:flex-row w-full mb-6"
         >
           <div
@@ -462,7 +636,7 @@
       <!-- Section 3 -->
       <section
         id="section3"
-        data-aos="fade-up"
+        data-gsap="fade-up"
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 shadow mb-8"
       >
         <h2 data-i18n="section3.title" class="text-2xl font-bold mb-4">
@@ -476,7 +650,7 @@
           class="flex flex-col sm:flex-row justify-around items-center gap-4"
         >
           <div
-            data-aos="flip-up"
+            data-gsap="flip-up"
             class="w-[40%] sm:w-[20%] md:w-[50%] lg:w-[20%] text-center"
           >
             <a
@@ -489,7 +663,7 @@
             <div class="mt-2">FB</div>
           </div>
           <div
-            data-aos="flip-down"
+            data-gsap="flip-down"
             class="w-[40%] sm:w-[20%] md:w-[50%] lg:w-[20%] text-center"
           >
             <a
@@ -523,6 +697,58 @@
     >
     </a>
 
+    <!-- Cart Drawer -->
+    <div class="cart-shell" aria-hidden="true">
+      <button
+        type="button"
+        class="cart-backdrop js-cart-close"
+        aria-label="Close shopping cart"
+      ></button>
+      <aside
+        class="cart-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-title"
+      >
+        <div class="cart-drawer__header">
+          <div>
+            <p class="cart-drawer__eyebrow" data-i18n="cart.eyebrow">
+              Yong Ji Seafood
+            </p>
+            <h2 id="cart-title" data-i18n="cart.title">購物車</h2>
+          </div>
+          <button
+            type="button"
+            class="cart-drawer__close js-cart-close"
+            aria-label="Close shopping cart"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="cart-drawer__items js-cart-items"></div>
+
+        <div class="cart-drawer__empty js-cart-empty">
+          <div class="cart-drawer__empty-icon">＋</div>
+          <p data-i18n="cart.emptyTitle">購物車還是空的</p>
+          <span data-i18n="cart.emptyText">先選一個商品加入購物車。</span>
+        </div>
+
+        <div class="cart-drawer__summary">
+          <div class="cart-drawer__summary-line">
+            <span data-i18n="cart.subtotal">小計</span>
+            <strong class="js-cart-subtotal">$0</strong>
+          </div>
+          <p data-i18n="cart.checkoutHint">
+            付款串接完成後，這裡會送出訂單並前往綠界付款。
+          </p>
+          <button type="button" class="cart-drawer__checkout js-cart-checkout">
+            <span data-i18n="cart.checkout">前往結帳</span>
+          </button>
+        </div>
+      </aside>
+    </div>
+
     <!-- JS Section -->
     <!-- i18n JS -->
     <script src="./i18n/i18n.js"></script>
@@ -530,14 +756,15 @@
     <!-- Swiper JS -->
     <script src="./js/swiper.js"></script>
 
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="./js/scroll-animations.js?v=20260521"></script>
+    <script src="./js/product-carousel.js?v=20260521"></script>
+    <script src="./js/cart.js?v=20260521"></script>
 
     <!-- PWA JS -->
-    <script src=".js/pwa.js"></script>
+    <script src="./js/pwa.js"></script>
 
     <!-- End of Scripts -->
     <script src="./js/end.js"></script>
